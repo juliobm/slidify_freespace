@@ -1,0 +1,79 @@
+---
+title       : Coursersa Project Developing Data Products 
+subtitle    : Free Space on disks Server
+author      : Julio B-M
+job         : TIC responsible
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+ext_widgets: {rCharts: [libraries/nvd3]}
+
+---
+
+## The problem and solution
+
+* I'm responsible of many servers of a company. I'm fear about getting low space on disks.  
+* In Sep-2011 I made a python script that checks every fex minutes free space on disks on each server of my lan and logs in a file once a day the result.   
+* If a disk gets 1GB low, the script sends me a email.  
+
+**Now I want to see the log-data I got along these years graphically**.
+
+
+
+--- .class #id 
+
+## The data
+
+The log file has this structure
+```{r} 
+datalog <- read.csv("libre_en_disco_log.csv", dec=",",head=TRUE,sep="\t")
+head(datalog)
+```
+
+--- .class #id
+
+## The ShinyApp
+
+
+* I made this shinyapp  
+
+https://juliobm.shinyapps.io/projectfreespace
+
+* You can choose server and the the page shows you only the disks that has the server.
+
+* You can select a range date to show the data too.
+
+* In another tab you can see the log file in table format.
+
+* You can see the code at this link
+
+https://github.com/juliobm/freespace
+
+
+
+--- .class #id
+
+## A graph example
+
+```{r echo=FALSE}
+datalog <- read.csv("libre_en_disco_log.csv", dec=",",head=TRUE,sep="\t")
+datalog$FECHA <- as.Date(datalog$FECHA)
+solo_disco <- datalog[datalog$DISCO=="C$" & datalog$SERVIDOR=="INTRANET",]
+from <- "2014-01-01"
+til <- "2014-10-09"
+midata <- solo_disco[solo_disco$FECHA>=from & solo_disco$FECHA<=til,]     
+p <- ggplot(midata, aes(x=FECHA, y=GB)) +
+      theme_bw() +
+      #geom_histogram(binwidth = bin, colour="white") +
+      geom_line(colour="black", stat="identity") +
+      geom_smooth( aes(group=1),method="gam") +
+      labs(y ="GB") +
+      labs(x ="Date") +
+      labs(title = "Free Space on INTRANET disk C$ in 2014") +
+      scale_fill_brewer() +
+      scale_x_date()
+print(p)
+```
