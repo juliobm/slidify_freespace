@@ -50,7 +50,7 @@ https://juliobm.shinyapps.io/projectfreespace
 
 * You can see the code at this link
 
-https://github.com/juliobm/freespace
+https://github.com/juliobm/slidify_freespace
 
 
 

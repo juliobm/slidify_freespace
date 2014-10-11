@@ -61,7 +61,7 @@ https://juliobm.shinyapps.io/projectfreespace
 
 * You can see the code at this link
 
-https://github.com/juliobm/freespace
+https://github.com/juliobm/slidify_freespace
 
 
 
@@ -69,4 +69,11 @@ https://github.com/juliobm/freespace
 
 ## A graph example
 
-![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2.png) 
+
+```
+## Error: no se pudo encontrar la función "ggplot"
+```
+
+```
+## Error: objeto 'p' no encontrado
+```
