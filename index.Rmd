@@ -9,8 +9,6 @@ hitheme     : tomorrow      #
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
-ext_widgets: {rCharts: [libraries/nvd3]}
-
 ---
 
 ## The problem and solution
@@ -27,6 +25,7 @@ ext_widgets: {rCharts: [libraries/nvd3]}
 
 ## The data
 
+
 The log file has this structure
 ```{r} 
 datalog <- read.csv("libre_en_disco_log.csv", dec=",",head=TRUE,sep="\t")
@@ -40,7 +39,7 @@ head(datalog)
 
 * I made this shinyapp  
 
-https://juliobm.shinyapps.io/projectfreespace
+https://juliobm.shinyapps.io/shiny_freespace
 
 * You can choose server and the the page shows you only the disks that has the server.
 
@@ -59,12 +58,11 @@ https://github.com/juliobm/slidify_freespace
 ## A graph example
 
 ```{r echo=FALSE}
+library(ggplot2)
 datalog <- read.csv("libre_en_disco_log.csv", dec=",",head=TRUE,sep="\t")
 datalog$FECHA <- as.Date(datalog$FECHA)
-solo_disco <- datalog[datalog$DISCO=="C$" & datalog$SERVIDOR=="INTRANET",]
-from <- "2014-01-01"
-til <- "2014-10-09"
-midata <- solo_disco[solo_disco$FECHA>=from & solo_disco$FECHA<=til,]     
+midata <- datalog[datalog$DISCO=="C$" & datalog$SERVIDOR=="INTRANET",]
+   
 p <- ggplot(midata, aes(x=FECHA, y=GB)) +
       theme_bw() +
       #geom_histogram(binwidth = bin, colour="white") +

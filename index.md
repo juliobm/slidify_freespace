@@ -9,8 +9,6 @@ hitheme     : tomorrow      #
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
-ext_widgets: {rCharts: [libraries/nvd3]}
-
 ---
 
 ## The problem and solution
@@ -27,6 +25,7 @@ ext_widgets: {rCharts: [libraries/nvd3]}
 
 ## The data
 
+
 The log file has this structure
 
 ```r
@@ -36,12 +35,12 @@ head(datalog)
 
 ```
 ##          SERVIDOR DISCO      FECHA     HORA     GB
-## 1            VWEB    C$ 2011-06-23 14:36:00  22.68
-## 2 BU-CONCENTRADOR    C$ 2011-06-23 14:36:00 195.57
-## 3          S_BBDD    C$ 2011-06-23 14:36:00  34.22
-## 4          S_BBDD    D$ 2011-06-23 14:36:00   1.36
-## 5          S_BBDD    E$ 2011-06-23 14:36:00 386.09
-## 6            S_TS    C$ 2011-06-23 14:36:00 125.49
+## 1        S_SHADOW    E$ 2014-09-29 08:10:00  12.97
+## 2        S_SHADOW    C$ 2014-09-29 08:10:00   2.35
+## 3        INTRANET    C$ 2014-09-29 08:10:00   2.08
+## 4            S_TS    C$ 2014-09-29 08:10:00  35.93
+## 5 BU-CONCENTRADOR    C$ 2014-09-30 08:10:00 191.07
+## 6            VWEB    C$ 2014-09-30 08:10:00  20.09
 ```
 
 --- .class #id
@@ -51,7 +50,7 @@ head(datalog)
 
 * I made this shinyapp  
 
-https://juliobm.shinyapps.io/projectfreespace
+https://juliobm.shinyapps.io/shiny_freespace
 
 * You can choose server and the the page shows you only the disks that has the server.
 
@@ -69,11 +68,4 @@ https://github.com/juliobm/slidify_freespace
 
 ## A graph example
 
-
-```
-## Error: no se pudo encontrar la función "ggplot"
-```
-
-```
-## Error: objeto 'p' no encontrado
-```
+![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2.png) 

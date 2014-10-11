@@ -1,3 +1,4 @@
 base
-devtools
-slidify
+ggplot2
+mgcv
+nlme
