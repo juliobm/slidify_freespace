@@ -15,7 +15,7 @@ slidify presentation for MOOC Coursera
 
 * I made this shinyapp  
 
-https://juliobm.shinyapps.io/projectfreespace
+https://juliobm.shinyapps.io/shiny_freespace
 
 * You can choose server and the the page shows you only the disks that has the server.
 
@@ -23,9 +23,9 @@ https://juliobm.shinyapps.io/projectfreespace
 
 * In another tab you can see the log file in table format.
 
-* You can see the code at this link
+* You can see the code to make this slidify at this link
 
-https://github.com/juliobm/freespace
+https://github.com/juliobm/slidify_freespace
 
 
 
